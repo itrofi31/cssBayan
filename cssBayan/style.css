@@ -1,0 +1,63 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: #333;
+  background-color: #ffffcc;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.accordion {
+  margin: 20rem auto;
+  padding: 3rem 6rem;
+  border: 1px solid #ddd;
+  max-width: 70rem;
+  height: max-content;
+  box-shadow: 0 0 4rem rgba(0, 0, 0, 0.2);
+}
+
+.h1 {
+  font-size: 3.6rem;
+}
+
+.meme {
+  border-top: 1px solid #ccc;
+  padding: 2rem;
+}
+
+.meme__text {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.meme__title {
+  margin-bottom: 1.2rem;
+  font-size: 2.4rem;
+}
+
+.icon {
+  width: 2.4rem;
+  height: 2.4rem;
+  display: inline-block;
+}
+
+.meme__figure {
+  display: flex;
+  justify-content: center;
+}
+
+.meme__img {
+  width: 70%;
+}
