@@ -13,18 +13,19 @@ html {
 body {
   font-family: 'Inter', sans-serif;
   color: #333;
-  background-color: #ffffcc;
+  background-color: #ffffec;
   font-weight: 400;
   line-height: 1.6;
 }
 
 .accordion {
+  background-color: #ffffcc;
+
   margin: 20rem auto;
   padding: 3rem 6rem;
   border: 1px solid #ddd;
   max-width: 70rem;
   height: max-content;
-  box-shadow: 0 0 4rem rgba(0, 0, 0, 0.2);
 }
 
 .h1 {
@@ -32,32 +33,87 @@ body {
 }
 
 .meme {
+  border-radius: 1rem;
   border-top: 1px solid #ccc;
-  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: all 0.3s;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 
-.meme__text {
-  display: flex;
-  justify-content: space-between;
-  cursor: pointer;
+.meme:not(:last-child) {
+  margin-bottom: 2rem;
 }
 
 .meme__title {
-  margin-bottom: 1.2rem;
   font-size: 2.4rem;
+  cursor: pointer;
+  padding: 2rem;
+}
+.meme__title::before {
+  content: '+';
+  width: 3rem;
+  opacity: 0;
+  color: #333;
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  transition: all 0.3s;
 }
 
-.icon {
-  width: 2.4rem;
-  height: 2.4rem;
-  display: inline-block;
-}
+/* .meme__title::after {
+  content: '-';
+  width: 3rem;
+  opacity: 0;
+  color: #333;
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  transition: all 0.3s;
+} */
 
 .meme__figure {
   display: flex;
+  height: 0;
   justify-content: center;
+  transform: scale(0);
+  opacity: 0;
+  cursor: pointer;
+  transition: scale, 0.4s;
 }
 
 .meme__img {
   width: 70%;
+}
+
+/* animation */
+
+.meme__input {
+  display: block;
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+.meme__input:checked ~ .meme__figure {
+  height: 100%;
+  transform: scale(1);
+  opacity: 1;
+}
+.accordion:hover .meme__title::before {
+  opacity: 100;
+}
+
+.meme__input:checked ~ .meme__title::before {
+  opacity: 0;
+}
+.accordion:hover .meme__input:checked ~ .meme__title::before {
+  opacity: 100;
+  transform: rotate(45deg);
+  top: 2.5rem;
+}
+.meme__input:checked ~ .meme__title {
+  color: #f10000;
+  background-color: #fff;
 }
