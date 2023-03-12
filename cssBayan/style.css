@@ -12,20 +12,20 @@ html {
 
 body {
   font-family: 'Inter', sans-serif;
-  color: #333;
+  color: #332f29;
   background-color: #ffffec;
   font-weight: 400;
   line-height: 1.6;
 }
 
 .accordion {
-  background-color: #ffffcc;
-
-  margin: 20rem auto;
+  background-color: #ffefd6;
+  border-radius: 1rem;
+  margin: 10rem auto;
   padding: 3rem 6rem;
   border: 1px solid #ddd;
   max-width: 70rem;
-  height: max-content;
+  cursor: pointer;
 }
 
 .h1 {
@@ -35,13 +35,17 @@ body {
 
 .meme {
   border-radius: 1rem;
-  border-top: 1px solid #ccc;
   display: flex;
   flex-direction: column;
   position: relative;
   transition: all 0.3s;
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
   overflow: hidden;
+}
+
+.meme:active {
+  box-shadow: 0 0 0.1rem rgba(0, 0, 0, 0.1);
+  opacity: 0.7;
 }
 
 .meme:not(:last-child) {
@@ -67,13 +71,10 @@ body {
 .meme__figure {
   display: flex;
   justify-content: center;
-  /* transform: scale(0); */
   max-height: 0;
-  /* opacity: 0; */
   cursor: pointer;
-  /* transition: max-height, 0.4s; */
   overflow: hidden;
-  transition: all 0.5s;
+  transition: max-height 0.5s;
 }
 
 .meme__img {
@@ -86,13 +87,12 @@ body {
   display: block;
   position: absolute;
   opacity: 0;
+  z-index: -1;
 }
 .meme__input:checked ~ .meme__figure {
-  /* height: 100%; */
-  /* transform: scale(1); */
-  max-height: 70rem;
+  max-height: 100vh;
   object-fit: contain;
-  /* opacity: 1; */
+  background-color: #ffffec;
 }
 
 .meme__input:checked ~ .meme__title::before {
@@ -100,7 +100,7 @@ body {
 }
 
 .meme__input:checked ~ .meme__title {
-  color: #996007;
+  color: #665e52;
   background-color: #ffffec;
 }
 
@@ -108,13 +108,23 @@ body {
   /* hover only for desktop*/
   .accordion:hover .meme__title {
     cursor: pointer;
-    color: #996007;
+    color: #665e52;
   }
   .accordion:hover .meme__title::before {
-    opacity: 100;
-    color: #996007;
+    opacity: 1;
+    color: #665e52;
   }
   .accordion:hover .meme__input:checked ~ .meme__title::before {
+    opacity: 1;
+    transform: rotate(45deg);
+    top: 2.5rem;
+  }
+  .meme__title:hover ~ .meme__figure {
+    max-height: 100vh;
+    object-fit: contain;
+  }
+
+  .meme:hover .meme__title::before {
     opacity: 100;
     transform: rotate(45deg);
     top: 2.5rem;
@@ -127,6 +137,16 @@ body {
   .accordion {
     margin: 5rem auto;
   }
+
+  .meme__input:checked ~ .meme__title::before {
+    opacity: 1;
+    transform: rotate(45deg);
+    top: 2.5rem;
+  }
+
+  .meme__title::before {
+    opacity: 1;
+  }
 }
 
 @media only screen and (max-width: 569px) {
@@ -135,5 +155,8 @@ body {
   }
   .accordion {
     margin: 1rem;
+  }
+  .meme__title {
+    font-size: 2rem;
   }
 }
