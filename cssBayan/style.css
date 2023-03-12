@@ -1,6 +1,4 @@
-*,
-*::before,
-*::after {
+* {
   margin: 0;
   padding: 0;
   box-sizing: inherit;
@@ -23,7 +21,7 @@ body {
   border-radius: 1rem;
   margin: 10rem auto;
   padding: 3rem 6rem;
-  border: 1px solid #ddd;
+  border: 0.1rem solid #ddd;
   max-width: 70rem;
   cursor: pointer;
 }
@@ -37,7 +35,6 @@ body {
   border-radius: 1rem;
   display: flex;
   flex-direction: column;
-  position: relative;
   transition: all 0.3s;
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -57,15 +54,14 @@ body {
   font-weight: 600;
   padding: 2rem;
   cursor: pointer;
+  display: flex;
+  justify-content: space-between;
 }
-.meme__title::before {
-  content: '+';
+.meme__icon {
+  /* content: '+'; */
   width: 3rem;
   opacity: 0;
   color: #333;
-  position: absolute;
-  top: 2rem;
-  right: 2rem;
   transition: all 0.3s;
 }
 
@@ -85,10 +81,7 @@ body {
 /* animation */
 
 .meme__input {
-  display: block;
-  position: absolute;
-  opacity: 0;
-  z-index: -1;
+  display: none;
 }
 .meme__input:checked ~ .meme__figure {
   max-height: 100vh;
@@ -96,7 +89,7 @@ body {
   background-color: #ffffec;
 }
 
-.meme__input:checked ~ .meme__title::before {
+.meme__input:checked ~ .meme__icon {
   opacity: 0;
 }
 
@@ -110,14 +103,13 @@ body {
   .accordion:hover .meme__title {
     color: #665e52;
   }
-  .accordion:hover .meme__title::before {
+  .accordion:hover .meme__icon {
     opacity: 1;
     color: #665e52;
   }
-  .accordion:hover .meme__input:checked ~ .meme__title::before {
+  .accordion:hover .meme__input:checked ~ .meme__icon {
     opacity: 1;
-    transform: rotate(45deg);
-    top: 2.5rem;
+    transform: rotate(45deg) translate(10%, 10%);
   }
   .meme__title:hover ~ .meme__figure,
   .meme__figure:hover {
@@ -125,10 +117,9 @@ body {
     object-fit: contain;
   }
 
-  .meme:hover .meme__title::before {
+  .meme:hover .meme__icon {
     opacity: 100;
-    transform: rotate(45deg);
-    top: 2.5rem;
+    transform: rotate(45deg) translate(10%, 10%);
   }
 }
 @media only screen and (max-width: 1180px) {
@@ -139,13 +130,12 @@ body {
     margin: 5rem auto;
   }
 
-  .meme__input:checked ~ .meme__title::before {
+  .meme__input:checked ~ .meme__icon {
     opacity: 1;
-    transform: rotate(45deg);
-    top: 2.5rem;
+    transform: rotate(45deg) translate(10%, 10%);
   }
 
-  .meme__title::before {
+  .meme__icon {
     opacity: 1;
   }
 }
