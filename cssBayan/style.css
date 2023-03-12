@@ -56,6 +56,7 @@ body {
   font-size: 2.4rem;
   font-weight: 600;
   padding: 2rem;
+  cursor: pointer;
 }
 .meme__title::before {
   content: '+';
@@ -107,7 +108,6 @@ body {
 @media only screen and (min-width: 1181px) {
   /* hover only for desktop*/
   .accordion:hover .meme__title {
-    cursor: pointer;
     color: #665e52;
   }
   .accordion:hover .meme__title::before {
