@@ -23,7 +23,6 @@ body {
   padding: 3rem 6rem;
   border: 0.1rem solid #ddd;
   max-width: 70rem;
-  cursor: pointer;
 }
 
 .h1 {
@@ -53,7 +52,6 @@ body {
   font-size: 2.4rem;
   font-weight: 600;
   padding: 2rem;
-  cursor: pointer;
   display: flex;
   justify-content: space-between;
 }
@@ -69,7 +67,6 @@ body {
   display: flex;
   justify-content: center;
   max-height: 0;
-  cursor: pointer;
   overflow: hidden;
   transition: max-height 0.5s;
 }
@@ -98,8 +95,11 @@ body {
   background-color: #ffffec;
 }
 
-@media all and (min-width: 1181px) {
+@media all and (min-width: 1320px) {
   /* hover all desktop*/
+  .accordion {
+    cursor: pointer;
+  }
   .accordion:hover .meme__title {
     color: #665e52;
   }
@@ -110,6 +110,14 @@ body {
   .accordion:hover .meme__input:checked ~ .meme__title .meme__icon {
     opacity: 1;
     transform: rotate(45deg) translate(10%, 10%);
+  }
+
+  .meme__title {
+    cursor: pointer;
+  }
+
+  .meme__figure {
+    cursor: pointer;
   }
   .meme__title:hover ~ .meme__figure,
   .meme__figure:hover {
